@@ -1,7 +1,7 @@
 from markovgen import Markov
 import BIN_manipulator
 import datetime
-corpus = open('althingi2.txt')
+corpus = open('althingi2_cleaned.txt')
 gen = Markov(corpus)
 
 def generate_correct_text(seed, max_length):

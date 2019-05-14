@@ -76,28 +76,12 @@ def remove_username_handle_and_clean(tweet):
 textgen = textgenrnn(weights_path='model/colaboratory_weights.hdf5',
         vocab_path='model/colaboratory_vocab.json',
         config_path='model/colaboratory_config.json')
-# corpus = open('althingi2.txt')
-#gen = Markov(corpus)
+
 r = Reynir()
 debug = len(sys.argv) > 1
 
 api = getApi()
 
-# def is_non_type(tree):
-#     return type(referenceSent.tree) == type(tree)
-# def get_noun_phrase(tree) :
-#     if is_non_type(tree) :
-#         return 'NO'
-#     if(tree.is_terminal):
-#         return 'NO'
-#     if 'NP' == tree.tag:
-#         print(tree.fl)
-#         return tree.text
-#     for child in tree.children:
-#         string = explore_tree(child)
-#         if string != 'NO':
-#             return string
-#     return 'NO'
 
 
 
@@ -106,27 +90,7 @@ referenceSent = r.parse_single('Í fréttum er þetta helst') # Parsing a sentan
 while True :
     try:
         rand = 1 # random.randint(0,1)
-        # if rand == 0:
-        #     print('Markov')
-        #     while True :
-        #         firstWord = gen.generate_markov_text(0)
-        #         #sent = r.parse_single(firstWord)
-        #         #print(sent)
-        #         #while type(referenceSent.tree) != type(sent.tree)  or len(sent.tree.nouns) == 0 :
-        #         #while True :
-        #         #    firstWord = gen.generate_markov_text(0)
-        #         #    sent = r.parse_single(firstWord)
-        #         #    if type(referenceSent.tree) == type(sent.tree) :
-        #         #        if len(sent.tree.nouns) == 0 :
-        #         #            break
-        #         message = gen.generate_markov_text(10)
-        #         sent = r.parse_single(message)
-        #         if type(referenceSent.tree) == type(sent.tree) :
-        #             break
-        #
-        #     str_list = [message.capitalize()]
-        #
-        # else :
+
         print("Neural network")
         while True :
             str_list = textgen.generate(max_gen_length=180, return_as_list=True, temperature=0.65)
