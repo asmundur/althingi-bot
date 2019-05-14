@@ -38,14 +38,20 @@ def getApi() :
 
 def answer_to_tweet(tweet_text, tweet_id, username):
     api = getApi()
-
+    should_use_NN = '#tauganet' in tweet_text
     cleaned_tweet_text = remove_username_handle_and_clean(tweet_text)
     print('cleaned_tweet_text')
     print(cleaned_tweet_text)
     seed = BIN_manipulator.manipulate_string(cleaned_tweet_text)
     print('seed')
     print(seed)
-    text = markov_generator.generate_correct_text(seed, 20)
+    text = ''
+    if should_use_NN :
+        str_list = textgen.generate(max_gen_length=180, return_as_list=True, temperature=0.65, prefix=seed)
+        text = str_list[0]
+        print(text)
+    else : 
+        text = markov_generator.generate_correct_text(seed, 20)
     print('text')
     print(text)
     if text == 'FAIL':
