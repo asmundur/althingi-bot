@@ -250,6 +250,14 @@ def handle_adjectives(node):
     print(case_str)
     word = get_word_in_case(BIN_items[0][1], case_str)
     return word
+    # if word == 'NOT FOUND':
+    #     new_words = []
+    #     break
+    # new_words.append(word)
+    # if number_appeared_before:
+    #     new_words = swapPositions(new_words, current_index, current_index - 1)
+    # elif previous_word_noun and not explicit_article:
+    #     new_words = swapPositions(new_words, current_index, current_index - 1)
 
 
 
